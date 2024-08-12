@@ -21,7 +21,7 @@ export function WobbleCardDesign() {
     width={500}
     height={500}
     alt="Notes Saver demo"
-    className="absolute -right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
+    className="absolute -right-[40%] lg:-right-3 grayscale filter -bottom-10 object-contain rounded-2xl"
   />
 </WobbleCard>
 <WobbleCard containerClassName="col-span-1 md:min-h-[300px] min-h-[250px]">
@@ -46,7 +46,7 @@ export function WobbleCardDesign() {
     width={500}
     height={500}
     alt="Notes Saver demo"
-    className="absolute   -right-[45%]  -bottom-10 object-contain rounded-2xl"
+    className="absolute  lg:-right-4 -right-[45%]  -bottom-10 object-contain rounded-2xl"
   />
 </WobbleCard>
 
