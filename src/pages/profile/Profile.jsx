@@ -16,8 +16,7 @@ const Profile = () => {
     const fetchUserData = async () => {
       const data = await getIdFromToken();
       if (data) {
-        setUser(data);
-        console.log(data);
+        setUser(data); 
       }
     };
     fetchUserData();

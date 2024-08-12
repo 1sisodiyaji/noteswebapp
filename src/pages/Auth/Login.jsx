@@ -175,8 +175,8 @@ const Login = () => {
 </Helmet>
 
       <div className="min-h-screen bg-slate-400 dark:bg-gray-950">
-        <div className="grid md:grid-cols-2 ">
-          <div className="flex items-center justify-center">
+        <div className="flex justify-between flex-col-reverse">
+          <div className="flex items-center justify-center pb-12">
              
                 <div className=" space-y-4" style={{ width: "420px" }}>
                   <form onSubmit={handleSubmit}>

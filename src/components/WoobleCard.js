@@ -12,8 +12,8 @@ export function WobbleCardDesign() {
     <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
       Notes Saver: Simplify Your Note-Taking Experience
     </h2>
-    <p className="mt-4 text-left text-base/6 text-neutral-200">
-      With Notes Saver, you can easily manage, organize, and access your notes anytime, anywhere. Join our growing community of users and experience the convenience of seamless note-taking.
+    <p className="mt-4 text-left text-xs text-neutral-200">
+      With Notes Saver, you can easily manage, <br/> organize, and access your notes anytime, <br/> anywhere. Join our growing community  <br/> of users and experience the convenience  <br/> of seamless note-taking.
     </p>
   </div>
   <img 
@@ -21,7 +21,7 @@ export function WobbleCardDesign() {
     width={500}
     height={500}
     alt="Notes Saver demo"
-    className="absolute -right-4 lg:-right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
+    className="absolute -right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
   />
 </WobbleCard>
 <WobbleCard containerClassName="col-span-1 md:min-h-[300px] min-h-[250px]">
@@ -37,8 +37,8 @@ export function WobbleCardDesign() {
     <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
       Get Started with Notes Saver Today!
     </h2>
-    <p className="mt-4 max-w-[26rem] text-left text-base/6 text-neutral-200">
-      Join thousands of satisfied users who have transformed their note-taking experience with Notes Saver. Sign up now and start organizing your notes with ease.
+    <p className="mt-4 max-w-[22rem] text-left   text-neutral-200 text-xs">
+      Join thousands of  users who have transformed <br/> their note-taking experience with Notes Saver.<br/> Sign up now and start organizing your <br/> notes with ease.
     </p>
   </div>
   <img
@@ -46,7 +46,7 @@ export function WobbleCardDesign() {
     width={500}
     height={500}
     alt="Notes Saver demo"
-    className="absolute -right-10 md:-right-[40%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
+    className="absolute   -right-[45%]  -bottom-10 object-contain rounded-2xl"
   />
 </WobbleCard>
 

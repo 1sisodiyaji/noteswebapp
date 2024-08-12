@@ -192,11 +192,10 @@ const Dashboard = () => {
               Pocket Notes
             </h1>
 
-          <div className={`flex-grow  relative -left-12 space-y-2 p-3 text-xl `} onClick={setgroupChat}>
+          <div className={`flex-grow  relative md:-left-12 space-y-2 p-3 text-xl `} onClick={setgroupChat}>
               {groupList.length > 0 &&
-                groupList.map((group) => (
-                  <>
-                  <div  key={group._id} className="flex justify-between items-center">
+                groupList.map((group) => ( 
+                  <div  key={group._id} className="flex justify-around items-center max-w-96">
                   <UserProfile
                     userName={group.groupName}
                     color={group.Color}
@@ -207,17 +206,15 @@ const Dashboard = () => {
                     }}
                   /> 
                  <details className="dropdown">
-                    <summary className="btn m-1 bg-slate-400 dark:bg-gray-950 "> <i className="fi fi-sr-share text-black dark:text-white cursor-pointer"></i></summary>
-                    <ul className="menu dropdown-content rounded-box z-[1] w-52 p-2 shadow bg-slate-200 dark:bg-gray-800 space-y-4 ">
+                    <summary className="btn  bg-slate-400 dark:bg-gray-950 "> <i className="fi fi-sr-share text-black dark:text-white cursor-pointer"></i></summary>
+                    <ul className="menu dropdown-content rounded-box z-[1] w-22 p-4 shadow bg-slate-300 dark:bg-gray-800 space-y-4 text-black dark:text-white">
                       <li className="cursor-pointer" onClick={() => {handleCopyText(`${window.location.origin}/groups/${group.slug}`)}}>Copy Link</li>
                       <li className="cursor-pointer" onClick={() => {handleShareWhatsApp(`${window.location.origin}/groups/${group.slug}`)}}>Whatsapp</li>
                       <li className="cursor-pointer" onClick={() => {handleShareLinkedIn(`${window.location.origin}/groups/${group.slug}`)}}>Linkedin</li>
                       
                     </ul>
                   </details>
-                  </div>
-                  </>
-                   
+                  </div> 
                 ))}
             </div>
             

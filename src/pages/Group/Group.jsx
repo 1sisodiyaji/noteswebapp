@@ -16,8 +16,7 @@ const Group = () => {
     const fetchGroupData = async () => {
       try { 
         const response = await axios.get(`${config.BASE_URL}/notes/getGroupData/${slug}`);
-        console.log(response);
-        setGroupData(response.data.group);
+        setGroupData(response.data.group); 
       } catch (err) {
         setError(err.message);
       } finally {
@@ -64,7 +63,7 @@ const Group = () => {
       </Helmet>
       <div className='min-h-screen bg-slate-100 dark:bg-gray-950'> 
         <BackgroundBoxesDesign title={groupData.groupName} description={`Color: ${groupData.Color}`} />
-        <div className='grid grid-cols-4 gap-4'> 
+        <div className='grid md:grid-cols-4 gap-4 p-1'> 
           {groupData.notesIds && groupData.notesIds.length === 0 ? (
             <p>No notes found for this group.</p>
           ) : ( 

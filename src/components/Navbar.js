@@ -78,7 +78,7 @@ const Navbar = () => {
           {menuhidden && (
             <ul
               tabIndex={0}
-              className={`menu menu-md relative top-16 -left-2 h-screen dropdown-content bg-slate-600 dark:bg-gray-950 text-black dark:text-white transform translate duration-300 ease-in-out ${
+              className={`menu menu-md relative top-16 -left-2 h-screen dropdown-content bg-slate-800 dark:bg-gray-950 text-white dark:text-white transform translate duration-300 ease-in-out ${
                 menuhidden ? "translate-x-0 " : "-translate-x-full "
               } z-10 w-52 p-2 shadow-lg transition-transform`}
             >
@@ -145,11 +145,11 @@ const Navbar = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <div className="dropdown dropdown-end">
+          <li className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost rounded-btn"
+              className=""
             >
               Groups
             </div>
@@ -194,7 +194,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </li>
           {id && (
             <>
               <li>
@@ -212,7 +212,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <input
             type="checkbox"
-            className="toggle mr-4"
+            className="toggle mr-4 ms-1"
             checked={darkMode}
             onChange={toggleDarkMode}
           />
