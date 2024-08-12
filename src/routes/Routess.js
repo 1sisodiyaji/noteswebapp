@@ -15,6 +15,7 @@ const Routess = () => {
    <>
  
     <Navbar/> 
+
     <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/register" element={<Register />} />
@@ -24,6 +25,7 @@ const Routess = () => {
     <Route path="/dashboard" element={<Dashbaord />} /> 
     <Route path="/profile" element={<Profile />} />
     </Routes>
+    
     <Footer/>
   
 
