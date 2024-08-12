@@ -239,7 +239,11 @@ const Login = () => {
                         className="fi fi-ss-check-circle text-center ms-2 mt-2"
                       ></i>
                     </div>
-
+                       
+                       <div className="flex items-end justify-end my-2">
+                       <Link to = "/forgot-password"><p className="text-black dark:text-stone-100">Forgot password</p> </Link> 
+                       </div>
+                        
                     {/* Submit button */}
                     {loading ? (
                       <>
