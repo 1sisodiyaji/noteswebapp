@@ -7,6 +7,8 @@ import config from "../../helpers/config.js";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import {Helmet} from "react-helmet";
+
+
 const Register = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -246,7 +248,7 @@ const Register = () => {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Register - Notes Saver" />
         <meta property="og:description" content="Register for Notes Saver to manage and save your notes efficiently." />
-        <meta property="og:image" content="https://example.com/og-image.jpg" />
+        <meta property="og:image" content="/logo.png" />
         <meta property="og:url" content="https://noteswebapp-rust.vercel.app/register" />
         <meta property="og:site_name" content="Notes Saver" />
 

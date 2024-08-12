@@ -92,7 +92,7 @@ const Profile = () => {
       }
     );
     if (response.status === 200) {
-      toast.success("Note updated successfully!");
+      toast.success("Note updated successfully!"); 
       setNotes(notes.map(note => note._id === id ? { ...note, content: updatedNotesData } : note));
     } else {
       toast.error("Failed to update note.");

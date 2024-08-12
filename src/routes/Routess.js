@@ -5,8 +5,7 @@ import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
 import ForgotPassword from "../pages/Auth/ForgotPassword";
 import Dashbaord from "../pages/Dasboard/Dashbaord";
-import Group from "../pages/Group/Group";
-import Notes from "../pages/Notes/Notes";
+import Group from "../pages/Group/Group"; 
 import Profile from "../pages/profile/Profile";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -22,8 +21,7 @@ const Routess = () => {
     <Route path="/login" element={<Login />} />
     <Route path="/forgot-password" element={<ForgotPassword />} />
     <Route path="/groups/:slug" element={<Group />} />
-    <Route path="/dashboard" element={<Dashbaord />} />
-    <Route path="/notes" element={<Notes />} />
+    <Route path="/dashboard" element={<Dashbaord />} /> 
     <Route path="/profile" element={<Profile />} />
     </Routes>
     <Footer/>

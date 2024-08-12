@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import config from "../../helpers/config.js";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
-
+import {Helmet} from 'react-helmet';
 const Login = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(false);  
@@ -146,6 +146,34 @@ const Login = () => {
   return (
     <>
       <Toaster />
+      <Helmet>
+  <title>Login - Notes Saver</title>
+  <meta
+    name="description"
+    content="Login to Notes Saver to access and manage your saved notes efficiently."
+  />
+  <meta
+    name="keywords"
+    content="Notes Saver, Login, Sign In, Notes Management, Save Notes"
+  />
+  <meta name="author" content="Notes Saver Team" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Login - Notes Saver" />
+  <meta
+    property="og:description"
+    content="Login to Notes Saver to access and manage your saved notes efficiently."
+  />
+  <meta property="og:image" content="/logo.png" />
+  <meta
+    property="og:url"
+    content="https://noteswebapp-rust.vercel.app/login"
+  />
+  <meta property="og:site_name" content="Notes Saver" />
+</Helmet>
+
       <div className="min-h-screen bg-slate-400 dark:bg-gray-950">
         <div className="grid md:grid-cols-2 ">
           <div className="flex items-center justify-center">
@@ -285,7 +313,7 @@ const Login = () => {
                
           </div>
           <div>
-            <Lamp title1={"Lets Begin "} title2={"Your Journey ..."} />
+            <Lamp title1={"Welcome back "} title2={"To Your Notes Web app ..."} />
           </div>
         </div>
       </div>

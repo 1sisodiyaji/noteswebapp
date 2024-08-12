@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import config from "../../helpers/config";
 import toast, { Toaster } from "react-hot-toast";
 import { ProfilePicture } from "../../helpers/userProfile";
+import {Helmet}  from 'react-helmet';
+import { handleCopyText, handleShareLinkedIn, handleShareWhatsApp } from "../../helpers/Share";
 
 const Dashboard = () => {
   const [groupName, setGroupName] = useState("");
@@ -18,6 +20,16 @@ const Dashboard = () => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  const [ischatOpen,setchatOpen]=useState(false);
+  const [groupchat,setGroupChat]=useState(false);
+
+  const setgroupChat=()=>{
+    setchatOpen(!ischatOpen);
+  }
+  const handleBackButton=()=>{
+    setGroupChat(!groupchat);
+
+  }
 
   const handleColorSelect = (color) => {
     setSelectedColor(color);
@@ -145,49 +157,97 @@ const Dashboard = () => {
   return (
     <>
       <Toaster />
+      <Helmet>
+  <title>Dashboard - Notes Saver</title>
+  <meta
+    name="description"
+    content="Manage and save your notes easily on the Notes Saver dashboard. Add, edit, and organize your notes efficiently."
+  />
+  <meta
+    name="keywords"
+    content="Notes Saver, Dashboard, Manage Notes, Add Notes, Save Notes, Organize Notes"
+  />
+  <meta name="author" content="Notes Saver Team" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dashboard - Notes Saver" />
+  <meta
+    property="og:description"
+    content="Manage and save your notes easily on the Notes Saver dashboard. Add, edit, and organize your notes efficiently."
+  />
+  <meta property="og:image" content="https://res.cloudinary.com/dbqq41bpc/image/upload/v1723419754/codesaarthi/7_tptucc.png" />
+  <meta
+    property="og:url"
+    content="https://noteswebapp-rust.vercel.app/dashboard"
+  />
+  <meta property="og:site_name" content="Notes Saver" />
+</Helmet>
+
       <div className="min-h-screen bg-slate-400 dark:bg-gray-950">
-        <div className="flex flex-wrap">
-          <div className="w-full lg:w-1/3 min-h-screen flex flex-col justify-center items-center">
-            <h1 className="text-4xl text-black dark:text-white md:mt-20 my-3 sticky top-0 z-10  w-full p-4 text-center">
+        <div className="flex flex-wrap ">
+          <div className={`  w-full lg:w-1/3 min-h-screen relative lg:left-12 lg:-top-20 flex flex-col justify-center items-center ${groupchat ?'hidden lg:block':' block '}`}>
+            <h1 className="text-4xl text-black dark:text-white md:mt-20 my-3 relative top-0 z-10  w-full p-4 text-center">
               Pocket Notes
             </h1>
 
-            <div className="flex-grow overflow-y-auto space-y-2 p-3">
+          <div className={`flex-grow  relative -left-12 space-y-2 p-3 text-xl `} onClick={setgroupChat}>
               {groupList.length > 0 &&
                 groupList.map((group) => (
+                  <>
+                  <div  key={group._id} className="flex justify-between items-center">
                   <UserProfile
-                    key={group._id}
                     userName={group.groupName}
                     color={group.Color}
                     onClick={() => {
                       console.log("Selected group:", group);
                       setSelectedGroup(group);
+                      setGroupChat(!groupchat);
                     }}
-                  />
+                  /> 
+                 <details className="dropdown">
+                    <summary className="btn m-1 bg-slate-400 dark:bg-gray-950 "> <i className="fi fi-sr-share text-black dark:text-white cursor-pointer"></i></summary>
+                    <ul className="menu dropdown-content rounded-box z-[1] w-52 p-2 shadow bg-slate-200 dark:bg-gray-800 space-y-4 ">
+                      <li className="cursor-pointer" onClick={() => {handleCopyText(`${window.location.origin}/groups/${group.slug}`)}}>Copy Link</li>
+                      <li className="cursor-pointer" onClick={() => {handleShareWhatsApp(`${window.location.origin}/groups/${group.slug}`)}}>Whatsapp</li>
+                      <li className="cursor-pointer" onClick={() => {handleShareLinkedIn(`${window.location.origin}/groups/${group.slug}`)}}>Linkedin</li>
+                      
+                    </ul>
+                  </details>
+                  </div>
+                  </>
+                   
                 ))}
             </div>
+            
+            
 
-            <div className="sticky bottom-0 z-10  w-full p-4 flex justify-end">
+            <div className="relative -top-36 -mt-20 ml-14 md:ml-0 md:-top-24 md:-mt-6 bottom-0 z-10  w-5/6   p-4 flex justify-end">
               <button onClick={openModal}>
-                <i className="fi fi-ss-add text-7xl text-cyan-700  cursor-pointer"></i>{" "}
+                <i className="fi fi-ss-add md:text-7xl text-5xl text-cyan-700  cursor-pointer"></i>{" "}
               </button>
             </div>
           </div>
+        
 
-          <div className="w-full lg:w-2/3 flex flex-col">
+          <div className="w-full lg:w-2/3 flex flex-col relative  ">
           
             {selectedGroup ? (
               <div>
 
                 <div
-                  className="  mt-16  w-full right-0 p-2"
+                  className="    w-full right-0 p-2"
                   style={{ backgroundColor: selectedGroup.Color }}
                 >
                   <div className="flex justify-between items-center space-x-4">
+                    <div className="flex text-cyan-800 " > <span className={`mt-2  font-mono text-2xl lg:hidden w-8 h-8 `} onClick={handleBackButton}>&lt;</span>
+                    
                     <ProfilePicture
                       name={selectedGroup.groupName}
                       color={selectedGroup.Color}
                     />
+                    </div>
                     <h2 className="text-3xl font-bold text-black dark:text-white">
                       {selectedGroup.groupName}
                     </h2>
@@ -198,13 +258,13 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-                <div className="flex-grow overflow-y-auto p-4" style={{height: '500px'}}>
-                <div className="p-4">
+                <div className="flex-grow overflow-y-auto p-4   " style={{height: '500px'}}>
+                <div className="p-4 shadow-inner shadow-white space-y-8">
                   {noteList.length > 0 ? (
                     noteList.map((note, index) => (
                       <div
                         key={index}
-                        className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-md my-2"
+                        className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-xl shadow-gray-600  hover:scale-y-125"
                       >
                         <div className="text-lg text-black dark:text-white mt-2">
                           {note.content}
