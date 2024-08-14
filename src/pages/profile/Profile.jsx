@@ -129,7 +129,7 @@ const Profile = () => {
                     }}
                   >
                     Edit <i className="fi fi-rr-pen-square"></i>
-                    <dialog id={`${note._id}/a`} className="modal">
+                    <dialog id={`${note._id}/a`} className="modal bg-slate-300 dark:bg-gray-750">
                       <div className="modal-box">
                         <h3 className="font-bold text-lg">Update Note !!!</h3>
 
