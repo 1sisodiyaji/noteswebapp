@@ -195,7 +195,7 @@ const Dashboard = () => {
           <div className={`flex-grow  relative md:-left-12 space-y-2 p-3 text-xl `} onClick={setgroupChat}>
               {groupList.length > 0 &&
                 groupList.map((group) => ( 
-                  <div  key={group._id} className="flex justify-around items-center max-w-96">
+                  <div  key={group._id} className="flex justify-around items-center w-96">
                   <UserProfile
                     userName={group.groupName}
                     color={group.Color}
@@ -307,7 +307,7 @@ const Dashboard = () => {
         rows={4}
         value={noteContent}
         onChange={(e) => setNoteContent(e.target.value)}
-        className="w-full bg-slate-500 dark:bg-slate-300 p-2 rounded-md text-black dark:text-white"
+        className="w-full bg-slate-400 dark:bg-slate-800 p-2 rounded-md text-black dark:text-white"
         placeholder="Enter your note here..."
       ></textarea>
       <button

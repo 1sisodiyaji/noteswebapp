@@ -254,8 +254,8 @@ const Register = () => {
 
       </Helmet>
       <div className="min-h-screen bg-slate-400 dark:bg-gray-950">
-        <div className="flex justify-between flex-col-reverse">
-          <div className="flex items-center justify-center flex-col-reverse pb-12">
+        <div className="flex md:flex-row  justify-between ">
+          <div className="flex  justify-center  items-center pb-12 border w-full">
             {verify ? (
               <>
                 <div
@@ -428,7 +428,7 @@ const Register = () => {
               </>
             )}
           </div>
-          <div>
+          <div className="hidden md:block w-full">
             <Lamp title1={"Lets Begin "} title2={"Your Journey ..."} />
           </div>
         </div>

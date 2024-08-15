@@ -175,9 +175,8 @@ const Login = () => {
 </Helmet>
 
       <div className="min-h-screen bg-slate-400 dark:bg-gray-950">
-        <div className="flex justify-between flex-col-reverse">
-          <div className="flex items-center justify-center pb-12">
-             
+        <div className="flex justify-between">
+          <div className="flex justify-center  items-center  pb-12 flex-1"> 
                 <div className=" space-y-4" style={{ width: "420px" }}>
                   <form onSubmit={handleSubmit}>
                     <div className="text-center">
@@ -313,10 +312,9 @@ const Login = () => {
                       </p>
                     </div>
                   </form>
-                </div>
-               
+                </div> 
           </div>
-          <div>
+          <div className="hidden md:block flex-1">
             <Lamp title1={"Welcome back "} title2={"To Your Notes Web app ..."} />
           </div>
         </div>
